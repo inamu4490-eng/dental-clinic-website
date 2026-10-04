@@ -2,13 +2,20 @@
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
+// Open or close the menu, and tell screen readers which it is
+function setMenuOpen(isOpen) {
+  navLinks.classList.toggle("open", isOpen);
+  menuToggle.setAttribute("aria-expanded", isOpen);
+  menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+}
+
 menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("open");
+  setMenuOpen(!navLinks.classList.contains("open"));
 });
 
 // Close the menu after a link is clicked (on phones)
 navLinks.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => navLinks.classList.remove("open"));
+  link.addEventListener("click", () => setMenuOpen(false));
 });
 
 // ===== 2. Footer year =====

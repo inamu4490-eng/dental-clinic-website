@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BrightSmile Dental Clinic: gentle, modern dental care for the whole family. See our services and book an appointment online.">
   <title>BrightSmile Dental Clinic</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,9 +12,9 @@
   <!-- ===== Header / Navigation ===== -->
   <header class="header">
     <div class="container nav">
-      <a href="#home" class="logo">🦷 BrightSmile</a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
-      <nav>
+      <a href="#home" class="logo"><span aria-hidden="true">🦷</span> BrightSmile</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+      <nav aria-label="Main menu">
         <ul class="nav-links" id="navLinks">
           <li><a href="#services">Services</a></li>
           <li><a href="#about">About</a></li>
@@ -25,6 +26,8 @@
       </nav>
     </div>
   </header>
+
+  <main>
 
   <!-- ===== Hero ===== -->
   <section class="hero" id="home">
@@ -40,12 +43,12 @@
     <div class="container">
       <h2 class="section-title">Our Services</h2>
       <div class="cards">
-        <div class="card"><span class="icon">🔍</span><h3>Check-ups</h3><p>Regular exams to catch problems early.</p></div>
-        <div class="card"><span class="icon">🪥</span><h3>Cleaning</h3><p>Remove plaque and tartar for healthy gums.</p></div>
-        <div class="card"><span class="icon">🧩</span><h3>Fillings</h3><p>Tooth-coloured fillings to repair cavities.</p></div>
-        <div class="card"><span class="icon">✨</span><h3>Whitening</h3><p>Safe treatments for a brighter smile.</p></div>
-        <div class="card"><span class="icon">😁</span><h3>Braces</h3><p>Straighten teeth with braces or aligners.</p></div>
-        <div class="card"><span class="icon">🩺</span><h3>Root Canal</h3><p>Save infected teeth and relieve pain.</p></div>
+        <div class="card"><span class="icon" aria-hidden="true">🔍</span><h3>Check-ups</h3><p>Regular exams to catch problems early.</p></div>
+        <div class="card"><span class="icon" aria-hidden="true">🪥</span><h3>Cleaning</h3><p>Remove plaque and tartar for healthy gums.</p></div>
+        <div class="card"><span class="icon" aria-hidden="true">🧩</span><h3>Fillings</h3><p>Tooth-coloured fillings to repair cavities.</p></div>
+        <div class="card"><span class="icon" aria-hidden="true">✨</span><h3>Whitening</h3><p>Safe treatments for a brighter smile.</p></div>
+        <div class="card"><span class="icon" aria-hidden="true">😁</span><h3>Braces</h3><p>Straighten teeth with braces or aligners.</p></div>
+        <div class="card"><span class="icon" aria-hidden="true">🩺</span><h3>Root Canal</h3><p>Save infected teeth and relieve pain.</p></div>
       </div>
     </div>
   </section>
@@ -57,9 +60,9 @@
       <p class="lead">BrightSmile has cared for families for over 10 years. We use modern equipment and
         a gentle approach so every visit feels comfortable.</p>
       <div class="cards team">
-        <div class="card"><div class="avatar">SA</div><h3>Dr. Sara Ahmed</h3><p>General Dentist</p></div>
-        <div class="card"><div class="avatar">OK</div><h3>Dr. Omar Khan</h3><p>Orthodontist</p></div>
-        <div class="card"><div class="avatar">LM</div><h3>Dr. Lina Malik</h3><p>Cosmetic Dentist</p></div>
+        <div class="card"><div class="avatar" aria-hidden="true">SA</div><h3>Dr. Sara Ahmed</h3><p>General Dentist</p></div>
+        <div class="card"><div class="avatar" aria-hidden="true">OK</div><h3>Dr. Omar Khan</h3><p>Orthodontist</p></div>
+        <div class="card"><div class="avatar" aria-hidden="true">LM</div><h3>Dr. Lina Malik</h3><p>Cosmetic Dentist</p></div>
       </div>
     </div>
   </section>
@@ -83,9 +86,9 @@
     <div class="container">
       <h2 class="section-title">What Our Patients Say</h2>
       <div class="cards">
-        <div class="card review"><p class="stars">★★★★★</p><p>"I used to be scared of the dentist. The team made me feel completely relaxed."</p><h4>- Ayesha R.</h4></div>
-        <div class="card review"><p class="stars">★★★★★</p><p>"My kids actually look forward to their check-ups now. Friendly and patient staff!"</p><h4>- Bilal T.</h4></div>
-        <div class="card review"><p class="stars">★★★★☆</p><p>"Quick appointment, painless filling, and clear advice on caring for my teeth."</p><h4>- Hina S.</h4></div>
+        <div class="card review"><p class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</p><blockquote>"I used to be scared of the dentist. The team made me feel completely relaxed."</blockquote><p class="author">- Ayesha R.</p></div>
+        <div class="card review"><p class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</p><blockquote>"My kids actually look forward to their check-ups now. Friendly and patient staff!"</blockquote><p class="author">- Bilal T.</p></div>
+        <div class="card review"><p class="stars" role="img" aria-label="4 out of 5 stars">★★★★☆</p><blockquote>"Quick appointment, painless filling, and clear advice on caring for my teeth."</blockquote><p class="author">- Hina S.</p></div>
       </div>
     </div>
   </section>
@@ -124,19 +127,19 @@
         <div class="form-row">
           <div class="field">
             <label for="name">Full Name</label>
-            <input type="text" id="name" placeholder="e.g. Ali Hassan">
+            <input type="text" id="name" autocomplete="name" placeholder="e.g. Ali Hassan">
             <small class="error"></small>
           </div>
           <div class="field">
             <label for="phone">Phone</label>
-            <input type="tel" id="phone" placeholder="e.g. 0300 1234567">
+            <input type="tel" id="phone" autocomplete="tel" placeholder="e.g. 0300 1234567">
             <small class="error"></small>
           </div>
         </div>
         <div class="form-row">
           <div class="field">
             <label for="email">Email</label>
-            <input type="email" id="email" placeholder="you@example.com">
+            <input type="email" id="email" autocomplete="email" placeholder="you@example.com">
             <small class="error"></small>
           </div>
           <div class="field">
@@ -175,11 +178,11 @@
           <textarea id="message" rows="3" placeholder="Tell us about your concern"></textarea>
         </div>
         <button type="submit" class="btn">Request Appointment</button>
-        <p class="success" id="successMsg"></p>
+        <p class="success" id="successMsg" role="status"></p>
       </form>
 
       <h3 class="list-title">My Appointments</h3>
-      <ul class="appointments" id="appointmentList"></ul>
+      <ul class="appointments" id="appointmentList" aria-live="polite"></ul>
     </div>
   </section>
 
@@ -188,20 +191,24 @@
     <div class="container contact">
       <div>
         <h2 class="section-title left">Contact Us</h2>
-        <p>📍 123 Smile Street, Your City</p>
-        <p>📞 (000) 123-4567</p>
-        <p>✉️ hello@brightsmile.example</p>
+        <address>
+          <p><span aria-hidden="true">📍</span> 123 Smile Street, Your City</p>
+          <p><span aria-hidden="true">📞</span> <a href="tel:+10001234567">(000) 123-4567</a></p>
+          <p><span aria-hidden="true">✉️</span> <a href="mailto:hello@brightsmile.example">hello@brightsmile.example</a></p>
+        </address>
       </div>
       <div>
         <h3>Opening Hours</h3>
         <table class="hours">
-          <tr><td>Mon – Fri</td><td>9:00 – 18:00</td></tr>
-          <tr><td>Saturday</td><td>9:00 – 13:00</td></tr>
-          <tr><td>Sunday</td><td>Closed</td></tr>
+          <tr><th scope="row">Mon – Fri</th><td>9:00 – 18:00</td></tr>
+          <tr><th scope="row">Saturday</th><td>9:00 – 13:00</td></tr>
+          <tr><th scope="row">Sunday</th><td>Closed</td></tr>
         </table>
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- ===== Footer ===== -->
   <footer class="footer">

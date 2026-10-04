@@ -110,8 +110,8 @@ a { color: inherit; text-decoration: none; }
 /* ===== Testimonials ===== */
 .review { text-align: left; }
 .review .stars { color: #f5a623; font-size: 1.2rem; margin-bottom: 8px; }
-.review p { font-style: italic; }
-.review h4 { margin-top: 12px; color: var(--primary-dark); }
+.review blockquote { font-style: italic; color: var(--muted); }
+.review .author { margin-top: 12px; font-weight: 700; color: var(--primary-dark); }
 
 /* ===== FAQ ===== */
 .faq { max-width: 750px; margin: 0 auto; }
@@ -173,8 +173,12 @@ a { color: inherit; text-decoration: none; }
 /* ===== Contact ===== */
 .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .contact p { margin-bottom: 8px; }
+.contact address { font-style: normal; }
+.contact address a { color: var(--primary); }
+.contact address a:hover { text-decoration: underline; }
 .hours { margin-top: 12px; border-collapse: collapse; }
-.hours td { padding: 6px 20px 6px 0; border-bottom: 1px solid #e3eaef; }
+.hours th, .hours td { padding: 6px 20px 6px 0; border-bottom: 1px solid #e3eaef; text-align: left; }
+.hours th { font-weight: 600; }
 
 /* ===== Footer ===== */
 .footer { background: var(--text); color: #c8d3db; text-align: center; padding: 22px 0; }
