@@ -26,20 +26,27 @@ A separate staff page (`admin.html`) lists all bookings. See [STRUCTURE.md](STRU
 ## 3. Colours
 | Name | Hex code | Used for |
 |------|----------|----------|
-| Primary | #1d8fb8 | Buttons, logo, links (trust and cleanliness) |
-| Primary dark | #156f8f | Headings, button hover |
+| Primary | #1a7ea2 | Buttons, logo, links (trust and cleanliness) |
+| Primary dark | #156f8f | Headings, button hover, hero gradient start |
 | Accent | #e9f6fb | Light blue section backgrounds |
 | Text | #24323d | Main text, footer background |
 | Muted | #5f7180 | Secondary text |
-| Error | #d64545 | Form error messages |
-| Success | #2e9e5b | Booking confirmation message |
+| Error | #d43d3d | Form error messages |
+| Success | #27844c | Booking confirmation message |
+| Star | #cc8309 | Review stars |
+| Focus | #c2410c | Keyboard focus outline (orange, so it stands out from the blues) |
 
 Why blue? Blue is linked with health, calm, and cleanliness, which suits a dental clinic.
+
+**Readability rule:** every text colour has a contrast of at least **4.5:1** with its background
+(the WCAG accessibility standard). Phase 3 darkened Primary, Error, Success, and Star slightly
+because the original shades were below this. Test any new colour at https://webaim.org/resources/contrastchecker/
 
 ## 4. Typography
 | Item | Decision |
 |------|----------|
-| Font | Segoe UI (fallback: Arial, sans-serif) |
+| Heading font | Poppins 600/700 (free, from Google Fonts) |
+| Body font | The device's own font: system-ui (Segoe UI on Windows, Roboto on Android, San Francisco on Apple) |
 | Main heading | 3rem (2.2rem on phones) |
 | Section headings | 2rem |
 | Body text | 1rem, line height 1.6 |
