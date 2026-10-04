@@ -2,6 +2,8 @@
 
 A beginner-friendly website for a fictional dental clinic, built with plain HTML, CSS, and JavaScript.
 
+**Live site:** https://inamu4490-eng.github.io/dental-clinic-website/
+
 ## How to run
 Double-click `index.html` to open it in your web browser. No installation is needed.
 
