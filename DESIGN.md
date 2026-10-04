@@ -89,4 +89,15 @@ because the original shades were below this. Test any new colour at https://weba
 |  Footer  ·  Clinic staff area link               |
 +--------------------------------------------------+
 ```
-On phones: cards stack in 1 column, and the menu becomes a ☰ button.
+## 8. Screen Sizes (Responsive Rules)
+| Screen | Width | Menu | Service cards | Form | Side margin |
+|--------|-------|------|---------------|------|-------------|
+| Phone | up to 600px | ☰ button | 1 per row | 1 column | 16px |
+| Tablet | 601–768px | ☰ button | 2 per row | 2 columns | 5% |
+| Laptop / desktop | 769px and wider | Full links | 2–3 per row | 2 columns | 5% (max width 1100px) |
+
+**Touch rule:** every button and link is at least **44px tall** so it's easy to tap with a finger.
+Links inside a sentence are the only exception.
+
+**Emoji rule:** only use emoji that work on older systems (Windows 10). The toothbrush 🪥 showed
+as an empty box there, so the Cleaning card uses 🦷 instead.

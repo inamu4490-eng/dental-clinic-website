@@ -50,7 +50,10 @@ button, input, select, textarea { font: inherit; } /* form controls use the page
 
 /* ===== Buttons ===== */
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;          /* big enough to tap with a finger */
   background: var(--primary);
   color: var(--white);
   padding: 12px 26px;
@@ -73,12 +76,16 @@ button, input, select, textarea { font: inherit; } /* form controls use the page
   z-index: 10;
 }
 .nav { display: flex; align-items: center; justify-content: space-between; height: var(--header-height); }
-.logo { font-size: 1.4rem; font-weight: 700; color: var(--primary); white-space: nowrap; }
+.logo {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px;
+  font-size: 1.4rem; font-weight: 700; color: var(--primary); white-space: nowrap;
+}
 .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+.nav-links a:not(.btn) { display: inline-block; padding: 12px 0; }
 .nav-links a:not(.btn):hover { color: var(--primary); }
 .menu-toggle {
   display: none; background: none; border: none; color: var(--text);
-  font-size: 1.8rem; line-height: 1; padding: 4px 8px; cursor: pointer;
+  font-size: 1.8rem; line-height: 1; min-width: 44px; min-height: 44px; cursor: pointer;
 }
 
 /* ===== Hero ===== */
@@ -102,7 +109,9 @@ button, input, select, textarea { font: inherit; } /* form controls use the page
 .lead { text-align: center; max-width: 700px; margin: 0 auto 40px; color: var(--muted); }
 
 /* ===== Cards ===== */
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+/* Cards are at least 280px wide, so a full-width page fits at most 3 per row
+   (6 services = 2 neat rows of 3). min() stops overflow on very small phones. */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 24px; }
 .card {
   background: var(--white);
   padding: 28px;
@@ -148,11 +157,11 @@ button, input, select, textarea { font: inherit; } /* form controls use the page
   border: 1px solid var(--border-light);
   border-radius: var(--radius);
   margin-bottom: 12px;
-  padding: 16px 20px;
 }
-.faq summary { font-weight: 600; cursor: pointer; }
-.faq details[open] summary { color: var(--primary); margin-bottom: 8px; }
-.faq p { color: var(--muted); }
+/* Padding on the summary (not the box) makes the whole row tappable */
+.faq summary { font-weight: 600; cursor: pointer; padding: 16px 20px; }
+.faq details[open] summary { color: var(--primary); }
+.faq p { color: var(--muted); padding: 0 20px 16px; }
 
 /* ===== Form ===== */
 .form {
@@ -192,15 +201,16 @@ button, input, select, textarea { font: inherit; } /* form controls use the page
 .appointments .empty { justify-content: center; color: var(--muted); }
 .cancel-btn {
   background: none; border: 1px solid var(--error); color: var(--error);
-  padding: 6px 14px; border-radius: 20px; cursor: pointer;
+  min-height: 44px; padding: 6px 16px; border-radius: 22px; cursor: pointer;
 }
 .cancel-btn:hover { background: var(--error); color: var(--white); }
 
 /* ===== Contact ===== */
 .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .contact p { margin-bottom: 8px; }
-.contact address { font-style: normal; }
-.contact address a { color: var(--primary); }
+.contact address { font-style: normal; margin-bottom: 8px; }
+.contact address p { display: flex; align-items: center; gap: 8px; min-height: 44px; margin: 0; }
+.contact address a { color: var(--primary); padding: 10px 0; }
 .contact address a:hover { text-decoration: underline; }
 .hours { margin-top: 12px; border-collapse: collapse; }
 .hours th, .hours td { padding: 6px 20px 6px 0; border-bottom: 1px solid var(--border-light); text-align: left; }
@@ -208,7 +218,7 @@ button, input, select, textarea { font: inherit; } /* form controls use the page
 
 /* ===== Footer ===== */
 .footer { background: var(--text); color: var(--footer-text); text-align: center; padding: 22px 0; }
-.footer-link { color: var(--footer-link); font-size: 0.9rem; }
+.footer-link { display: inline-block; padding: 12px 8px; color: var(--footer-link); font-size: 0.9rem; }
 .footer :focus-visible { outline-color: var(--footer-link); }
 .footer-link:hover { text-decoration: underline; }
 
@@ -216,7 +226,7 @@ button, input, select, textarea { font: inherit; } /* form controls use the page
 .admin { background: var(--accent); min-height: 100vh; }
 .badge {
   background: var(--primary); color: var(--white);
-  font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; vertical-align: middle;
+  font-size: 0.875rem; padding: 2px 10px; border-radius: 12px;
 }
 .btn-outline { background: var(--white); color: var(--primary); border: 1px solid var(--primary); }
 .btn-outline:hover { background: var(--primary); color: var(--white); }
@@ -246,27 +256,44 @@ button, input, select, textarea { font: inherit; } /* form controls use the page
 .booking-actions { display: flex; gap: 8px; }
 .empty-box { text-align: center; color: var(--muted); padding: 40px; background: var(--white); border-radius: var(--radius); }
 
-/* ===== Responsive (phones & tablets) ===== */
+/* ===== Responsive: tablets and phones (768px and narrower) ===== */
 @media (max-width: 768px) {
+  /* Menu becomes a ☰ button with a drop-down list */
   .menu-toggle { display: block; }
   .nav-links {
     display: none;
     position: absolute; top: var(--header-height); left: 0; right: 0;
     flex-direction: column;
+    gap: 0;
     background: var(--white);
-    padding: 20px 0;
+    padding: 8px 0 16px;
     box-shadow: var(--shadow);
   }
   .nav-links.open { display: flex; }
+  .nav-links li { width: 100%; text-align: center; }
+  .nav-links a:not(.btn) { display: block; padding: 12px 0; } /* the whole row is tappable */
+  .nav-links .btn { margin-top: 8px; }
+
+  .section { padding: 60px 0; }
   .hero { padding: 80px 0; }
   .hero h1 { font-size: 2.2rem; }
-  .form { padding: 20px; }
-  .form-row { grid-template-columns: 1fr; gap: 0; }
-  .contact { grid-template-columns: 1fr; gap: 24px; }
-  .stats { grid-template-columns: 1fr 1fr; }
   .booking { grid-template-columns: 1fr; gap: 8px; }
   .admin .logo { font-size: 1.2rem; }
-  .admin .nav .btn-small { padding: 6px 12px; font-size: 0.85rem; }
+}
+
+/* ===== Responsive: phones only (600px and narrower) ===== */
+@media (max-width: 600px) {
+  .container { width: auto; margin: 0 16px; } /* fixed 16px side margins on phones */
+  .section { padding: 48px 0; }
+  .section-title { font-size: 1.7rem; margin-bottom: 28px; }
+  .hero { padding: 64px 0; }
+  .hero h1 { font-size: 2rem; }
+  .card { padding: 22px; }
+  .form { padding: 20px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; } /* form fields stack in 1 column */
+  .contact { grid-template-columns: 1fr; gap: 24px; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .appointments li { flex-wrap: wrap; }
 }
 
 /* ===== Less motion for people who turned it off in their device settings ===== */
