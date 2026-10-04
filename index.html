@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrightSmile Dental Clinic</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===== Header / Navigation ===== -->
+  <header class="header">
+    <div class="container nav">
+      <a href="#home" class="logo">🦷 BrightSmile</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#tips">Tips</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#appointment" class="btn btn-small">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="home">
+    <div class="container hero-content">
+      <h1>Healthy Teeth,<br>Brighter Smiles</h1>
+      <p>Gentle, modern dental care for the whole family.</p>
+      <a href="#appointment" class="btn">Book an Appointment</a>
+    </div>
+  </section>
+
+  <!-- ===== Services ===== -->
+  <section class="section" id="services">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="cards">
+        <div class="card"><span class="icon">🔍</span><h3>Check-ups</h3><p>Regular exams to catch problems early.</p></div>
+        <div class="card"><span class="icon">🪥</span><h3>Cleaning</h3><p>Remove plaque and tartar for healthy gums.</p></div>
+        <div class="card"><span class="icon">🧩</span><h3>Fillings</h3><p>Tooth-coloured fillings to repair cavities.</p></div>
+        <div class="card"><span class="icon">✨</span><h3>Whitening</h3><p>Safe treatments for a brighter smile.</p></div>
+        <div class="card"><span class="icon">😁</span><h3>Braces</h3><p>Straighten teeth with braces or aligners.</p></div>
+        <div class="card"><span class="icon">🩺</span><h3>Root Canal</h3><p>Save infected teeth and relieve pain.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About & Team ===== -->
+  <section class="section section-alt" id="about">
+    <div class="container">
+      <h2 class="section-title">About Us</h2>
+      <p class="lead">BrightSmile has cared for families for over 10 years. We use modern equipment and
+        a gentle approach so every visit feels comfortable.</p>
+      <div class="cards team">
+        <div class="card"><div class="avatar">SA</div><h3>Dr. Sara Ahmed</h3><p>General Dentist</p></div>
+        <div class="card"><div class="avatar">OK</div><h3>Dr. Omar Khan</h3><p>Orthodontist</p></div>
+        <div class="card"><div class="avatar">LM</div><h3>Dr. Lina Malik</h3><p>Cosmetic Dentist</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Oral-care Tips ===== -->
+  <section class="section" id="tips">
+    <div class="container">
+      <h2 class="section-title">Oral-Care Tips</h2>
+      <ul class="tips">
+        <li><strong>Brush twice a day</strong> for 2 minutes with fluoride toothpaste.</li>
+        <li><strong>Floss daily</strong> to clean between teeth where brushes can't reach.</li>
+        <li><strong>Limit sugary snacks</strong> and drinks, which feed cavity-causing bacteria.</li>
+        <li><strong>Replace your toothbrush</strong> every 3 months.</li>
+        <li><strong>Visit the dentist</strong> every 6 months for a check-up.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== Testimonials ===== -->
+  <section class="section section-alt" id="reviews">
+    <div class="container">
+      <h2 class="section-title">What Our Patients Say</h2>
+      <div class="cards">
+        <div class="card review"><p class="stars">★★★★★</p><p>"I used to be scared of the dentist. The team made me feel completely relaxed."</p><h4>- Ayesha R.</h4></div>
+        <div class="card review"><p class="stars">★★★★★</p><p>"My kids actually look forward to their check-ups now. Friendly and patient staff!"</p><h4>- Bilal T.</h4></div>
+        <div class="card review"><p class="stars">★★★★☆</p><p>"Quick appointment, painless filling, and clear advice on caring for my teeth."</p><h4>- Hina S.</h4></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="section" id="faq">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <div class="faq">
+        <details>
+          <summary>How often should I visit the dentist?</summary>
+          <p>Most people should have a check-up and cleaning every 6 months.</p>
+        </details>
+        <details>
+          <summary>Does teeth whitening damage my teeth?</summary>
+          <p>Professional whitening done by a dentist is safe and does not harm healthy enamel.</p>
+        </details>
+        <details>
+          <summary>At what age should children first see a dentist?</summary>
+          <p>By their first birthday, or when the first tooth appears.</p>
+        </details>
+        <details>
+          <summary>What should I do in a dental emergency?</summary>
+          <p>Call us right away on (000) 123-4567. For severe pain, swelling, or a knocked-out tooth, come in as soon as possible.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Appointment Form ===== -->
+  <section class="section section-alt" id="appointment">
+    <div class="container">
+      <h2 class="section-title">Book an Appointment</h2>
+      <p class="lead">We're open Mon–Fri 9:00–18:00 and Sat 9:00–13:00. Times that are already booked are greyed out.</p>
+      <form id="appointmentForm" class="form" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="e.g. Ali Hassan">
+            <small class="error"></small>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" placeholder="e.g. 0300 1234567">
+            <small class="error"></small>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="you@example.com">
+            <small class="error"></small>
+          </div>
+          <div class="field">
+            <label for="service">Service</label>
+            <select id="service">
+              <option value="">-- Choose a service --</option>
+              <option>Check-up</option>
+              <option>Cleaning</option>
+              <option>Filling</option>
+              <option>Whitening</option>
+              <option>Braces</option>
+              <option>Root Canal</option>
+            </select>
+            <small class="error"></small>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="date">Date</label>
+            <input type="date" id="date">
+            <small class="error"></small>
+          </div>
+          <div class="field">
+            <label for="time">Time</label>
+            <select id="time">
+              <option value="">-- Choose a time --</option>
+              <option>09:00</option><option>10:00</option><option>11:00</option>
+              <option>12:00</option><option>14:00</option><option>15:00</option>
+              <option>16:00</option><option>17:00</option>
+            </select>
+            <small class="error"></small>
+          </div>
+        </div>
+        <div class="field">
+          <label for="message">Message (optional)</label>
+          <textarea id="message" rows="3" placeholder="Tell us about your concern"></textarea>
+        </div>
+        <button type="submit" class="btn">Request Appointment</button>
+        <p class="success" id="successMsg"></p>
+      </form>
+
+      <h3 class="list-title">My Appointments</h3>
+      <ul class="appointments" id="appointmentList"></ul>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="section" id="contact">
+    <div class="container contact">
+      <div>
+        <h2 class="section-title left">Contact Us</h2>
+        <p>📍 123 Smile Street, Your City</p>
+        <p>📞 (000) 123-4567</p>
+        <p>✉️ hello@brightsmile.example</p>
+      </div>
+      <div>
+        <h3>Opening Hours</h3>
+        <table class="hours">
+          <tr><td>Mon – Fri</td><td>9:00 – 18:00</td></tr>
+          <tr><td>Saturday</td><td>9:00 – 13:00</td></tr>
+          <tr><td>Sunday</td><td>Closed</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <p>© <span id="year"></span> BrightSmile Dental Clinic. All rights reserved.</p>
+    <p><a href="admin.html" class="footer-link">Clinic staff area</a></p>
+  </footer>
+
+  <script src="storage.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

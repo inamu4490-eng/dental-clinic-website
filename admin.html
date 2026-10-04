@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrightSmile Admin</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin">
+
+  <!-- ===== Header ===== -->
+  <header class="header">
+    <div class="container nav">
+      <a href="index.html" class="logo">🦷 BrightSmile <span class="badge">Staff</span></a>
+      <a href="index.html" class="btn btn-small">← Website</a>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <h1 class="section-title">Appointments Dashboard</h1>
+      <p class="lead">Demo only: this page shows bookings saved in <strong>this browser</strong>.
+        A real clinic would need a server and a login (see STRUCTURE.md, section 7).</p>
+
+      <!-- ===== Summary numbers ===== -->
+      <div class="stats">
+        <div class="stat"><span id="statToday">0</span><p>Today</p></div>
+        <div class="stat"><span id="statUpcoming">0</span><p>Upcoming</p></div>
+        <div class="stat"><span id="statDone">0</span><p>Completed</p></div>
+        <div class="stat"><span id="statTotal">0</span><p>Total</p></div>
+      </div>
+
+      <!-- ===== Filters ===== -->
+      <div class="toolbar">
+        <input type="search" id="search" placeholder="Search by patient name or phone">
+        <select id="show">
+          <option value="upcoming">Upcoming</option>
+          <option value="today">Today only</option>
+          <option value="past">Past</option>
+          <option value="all">All</option>
+        </select>
+        <button class="btn btn-small btn-outline" id="demoBtn">Add demo bookings</button>
+      </div>
+
+      <!-- ===== Bookings grouped by date ===== -->
+      <div id="schedule"></div>
+    </div>
+  </main>
+
+  <script src="storage.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
