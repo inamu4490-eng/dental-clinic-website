@@ -130,7 +130,7 @@
         <div class="form-row">
           <div class="field">
             <label for="name">Full Name</label>
-            <input type="text" id="name" autocomplete="name" placeholder="e.g. Ali Hassan">
+            <input type="text" id="name" autocomplete="name" maxlength="60" placeholder="e.g. Ali Hassan">
             <small class="error"></small>
           </div>
           <div class="field">
@@ -178,7 +178,7 @@
         </div>
         <div class="field">
           <label for="message">Message (optional)</label>
-          <textarea id="message" rows="3" placeholder="Tell us about your concern"></textarea>
+          <textarea id="message" rows="3" maxlength="500" placeholder="Tell us about your concern (up to 500 characters)"></textarea>
         </div>
         <button type="submit" class="btn">Request Appointment</button>
         <p class="success" id="successMsg" role="status"></p>

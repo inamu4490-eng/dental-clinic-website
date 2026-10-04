@@ -186,6 +186,7 @@ button, input, select, textarea { font: inherit; } /* form controls use the page
 .field.invalid input, .field.invalid select { border-color: var(--error); }
 .error { color: var(--error); min-height: 18px; }
 .success { color: var(--success); font-weight: 600; margin-top: 14px; }
+.success.failed { color: var(--error); }
 
 /* ===== Appointment list ===== */
 .list-title { text-align: center; margin: 50px 0 20px; }

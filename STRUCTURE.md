@@ -71,14 +71,20 @@ Backgrounds alternate between white and light blue (`.section-alt`) so each sect
 |---------|--------------|
 | Form fields | Name, Phone, Email, Service, Date, Time, Message (optional) |
 | No past dates | The date picker's minimum is set to today |
+| No past times today | If the date is today, times that have already passed are greyed out |
 | Sunday closed | Every time slot is greyed out, and an error appears if you try to submit |
 | Saturday mornings only | 14:00 and later are greyed out |
 | No double-booking | A date and time that's already booked is greyed out |
-| Validation | Each field shows its own red error message, one at a time |
+| Validation | Each field shows its own red error message. The cursor jumps to the first problem |
+| Live checking | Once a field shows an error, it's re-checked while you type, so the message disappears when fixed |
+| Phone rule | Only digits, spaces, `+ - ( )`, with 7 to 15 digits |
+| Full day | If a date has no free times left, the date field says so |
+| Screen readers | Each error is linked to its field (`aria-describedby`, `aria-invalid`) |
+| Saving fails | If the browser blocks storage, a red message asks the visitor to call instead |
 | Success message | "Thank you, [name]! Your request for [date] at [time]…" |
 | Saving | The booking is stored in `localStorage` and stays after a refresh |
-| My Appointments list | Shows every saved booking with a **Cancel** button |
-| Cancelling | Removes the booking and frees its time slot again |
+| My Appointments list | Shows every saved booking, earliest first, with a **Cancel** button |
+| Cancelling | Asks "Cancel your … appointment?" first, then removes it and frees the time slot |
 
 ---
 
@@ -113,7 +119,7 @@ Open site → Hero → scroll or click menu → Services → About → Tips → 
 
 ### Flow C: A visitor cancels an appointment
 ```
-Go to "My Appointments" → click Cancel → booking removed from storage → list updates → time slot free again
+Go to "My Appointments" → click Cancel → confirm "Yes" → booking removed from storage → list updates → time slot free again
 ```
 
 ### Flow D: A visitor comes back later
@@ -124,6 +130,7 @@ Open site again → script reads localStorage → "My Appointments" shows earlie
 ### Flow E: Phone user
 ```
 Open on phone → tap ☰ → menu opens → tap a link → menu closes and page scrolls to that section
+                                   └→ or tap outside the menu / press Escape → menu closes
 ```
 
 ---
@@ -165,16 +172,20 @@ Page loads
  └─ renderAppointments()                → loadAppointments()
 
 Date changes
- └─ updateTimeOptions()                 → isSlotOpen() → dayOfWeek(), loadAppointments()
+ └─ updateTimeOptions()                 → isSlotOpen() → dayOfWeek(), timeNow(), loadAppointments()
+
+Typing in a field that shows an error
+ └─ validateField(id)                   → rules[id]() → setError()
 
 Form submitted
- └─ validateForm()                      → setError(), isSlotOpen(), dayOfWeek()
+ └─ validateForm()                      → validateField() for every field → focus first bad field
      └─ if valid:
           loadAppointments() → push the new booking → saveAppointments()
-          form.reset() → updateTimeOptions() → renderAppointments()
+          (if saving fails → showMessage(red error) and stop)
+          form.reset() → updateTimeOptions() → showMessage(thank you) → renderAppointments()
 
 Cancel clicked
- └─ cancelAppointment(id)               → loadAppointments() → filter → saveAppointments()
+ └─ cancelAppointment(appt)             → confirm() → loadAppointments() → filter → saveAppointments()
                                           → renderAppointments() → updateTimeOptions()
 ```
 
@@ -182,14 +193,19 @@ Cancel clicked
 |----------|--------------|
 | `toDateString(d)` | Turns a date into `YYYY-MM-DD` using local time |
 | `dayOfWeek(date)` | Returns 0 (Sun) to 6 (Sat) |
-| `isSlotOpen(date, time)` | Returns true if the clinic is open and the slot isn't booked |
+| `timeNow()` | Current time as `HH:MM` |
+| `isSlotOpen(date, time)` | Returns true if the clinic is open, the time hasn't passed, and the slot isn't booked |
+| `hasFreeSlot(date)` | Returns true if that date has at least one free time |
 | `updateTimeOptions()` | Greys out unavailable times |
-| `setError(input, msg)` | Shows or clears the red message under a field |
-| `validateForm()` | Runs all checks and returns true or false |
+| `rules` | One small function per field that returns its error message, or `""` if it's fine |
+| `setError(input, msg)` | Shows or clears the red message under a field, and sets `aria-invalid` |
+| `validateField(id)` | Checks one field and shows its message |
+| `validateForm()` | Checks every field, moves the cursor to the first problem, returns true or false |
+| `showMessage(text, isError)` | Shows the green thank-you message, or a red one if saving failed |
 | `loadAppointments()` | Reads the saved list from localStorage |
 | `saveAppointments(list)` | Writes the list to localStorage |
 | `renderAppointments()` | Rebuilds the "My Appointments" list on screen |
-| `cancelAppointment(id)` | Deletes one booking |
+| `cancelAppointment(appt)` | Asks for confirmation, then deletes one booking |
 
 ### 5.4 Data Structure
 Each booking is a JavaScript **object**. All bookings are kept in an **array**, saved as text (JSON) under the key `"appointments"`:
